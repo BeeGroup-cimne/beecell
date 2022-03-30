@@ -1,0 +1,60 @@
+[DEVICES]
+[{'datasource': {'id': 43341}, 'description': '', 'id': 1043036, 'local_id': '1a', 'location': {'id': 25653}, 'name': '1a', 'status': 'ACCEPTED'},
+ {'datasource': {'id': 43341}, 'description': '', 'id': 1043037, 'local_id': '1b', 'location': {'id': 25653}, 'name': '1b', 'status': 'ACCEPTED'},
+ {'datasource': {'id': 43341}, 'description': '', 'id': 1043038, 'local_id': '1c', 'location': {'id': 25653}, 'name': '1c', 'status': 'ACCEPTED'},
+ {'datasource': {'id': 777}, 'description': ' ', 'id': 8857, 'local_id': '183a', 'location': {'id': 10506}, 'name': 'ACS', 'status': 'ACCEPTED'},
+ {'datasource': {'id': 11189}, 'description': ' Temp acs', 'id': 90661, 'local_id': '20_5', 'location': {'id': 24857}, 'name': 'ACS', 'status': 'ACCEPTED'},
+ {'datasource': {'id': 12495}, 'description': ' ', 'id': 110434, 'local_id': '3c', 'location': {'id': 25218}, 'name': 'ACS', 'status': 'ACCEPTED'},
+ {'datasource': {'id': 12268}, 'description': ' ', 'id': 159981, 'local_id': '3c', 'location': {'id': 24905}, 'name': 'ACS', 'status': 'ACCEPTED'},
+ {'datasource': {'id': 12409}, 'description': ' ', 'id': 160120, 'local_id': '3c', 'location': {'id': 24906}, 'name': 'ACS', 'status': 'ACCEPTED'},
+ {'datasource': {'id': 12429}, 'description': ' ', 'id': 160407, 'local_id': '3c', 'location': {'id': 24954}, 'name': 'ACS', 'status': 'ACCEPTED'},
+ {'datasource': {'id': 12510}, 'description': ' ', 'id': 160654, 'local_id': '3a', 'location': {'id': 25217}, 'name': 'ACS', 'status': 'ACCEPTED'}]
+
+[DEVICE]
+{'datasource': {'id': 43341}, 'description': '', 'id': 1043036, 'local_id': '1a', 'location': {'id': 25653}, 'name': '1a', 'status': 'ACCEPTED'}
+
+[DATAPOINTS]
+[{'id': 406, 'status': 'ACCEPTED'}, {'id': 401, 'status': 'ACCEPTED'}, {'id': 405, 'status': 'ACCEPTED'}]
+
+[PARAMETERS]
+device_id = 1043036
+[{'color': '#F25A5A', 'i18n_name_key': 'servicetype.current', 'icon': 'electricity', 'id': 406, 'key': 'CURRENT', 'name': 'Current', 'nature': 'INSTANTANEOUS', 'units': 'A'},
+ {'color': '#F25A5A', 'i18n_name_key': 'servicetype.power', 'icon': 'electricity', 'id': 401, 'key': 'POWER', 'name': 'Power', 'nature': 'INSTANTANEOUS', 'units': 'kW'},
+ {'color': '#F25A5A', 'i18n_name_key': 'servicetype.voltage', 'icon': 'electricity', 'id': 405, 'key': 'VOLTAGE', 'name': 'Voltage', 'nature': 'INSTANTANEOUS', 'units': 'V'}]
+
+[RESOLUTIONS]
+device_id =1043036
+NO DATA
+
+[READINGS BY PARAMETER KEY]
+Params:
+device_id =1043036
+parameter_key = 'CURRENT'
+resolution = 'H'
+from_="2020-01-01"
+to_="2021-01-01"
+
+[{'color': '#F25A5A', 'i18n_name_key': 'servicetype.current', 'icon': 'electricity', 'id': 406, 'key': 'CURRENT', 'name': 'Current', 'nature': 'INSTANTANEOUS', 'units': 'A'}, {'color': '#F25A5A', 'i18n_name_key': 'servicetype.power', 'icon': 'electricity', 'id': 401, 'key': 'POWER', 'name': 'Power', 'nature': 'INSTANTANEOUS', 'units': 'kW'}, {'color': '#F25A5A', 'i18n_name_key': 'servicetype.voltage', 'icon': 'electricity', 'id': 405, 'key': 'VOLTAGE', 'name': 'Voltage', 'nature': 'INSTANTANEOUS', 'units': 'V'}]
+
+Params:
+device_id =1043036
+parameter_key = 'CURRENT'
+resolution = 'H'
+from_="2020-01-01"
+to_="2021-01-01"
+operation = MAX
+
+{'timezone': 'Europe/Madrid', 'units': 'A', 'values': []}
+
+
+[ENERGY SOURCE SUPPLIES]
+energy_source = "ELECTRICITY"
+
+[{'POD': 'ES0031405987203001CF0D', 'address': {'city': '', 'coordinates': {'latitude': None, 'longitude': None}, 'country': {'code': '', 'name': ''}, 'street': '', 'zip': ''}, 'country': {'code': 'ES', 'name': 'Spain (España)'}, 'id': 21556, 'info': {'alias': '', 'comments': ' ', 'commissioning_date': None, 'description': ' ', 'distributor': '', 'meter_number': '', 'register_date': None}, 'name': 'A', 'status': 'ACTIVE', 'store_bills': False, 'type': 'ELECTRICITY'},
+ {'POD': 'DESFASDFSDF', 'address': {'city': 'ciutat', 'coordinates': {'latitude': None, 'longitude': None}, 'country': {'code': '', 'name': 'pais'}, 'street': 'direccion', 'zip': 'cp'}, 'country': {'code': 'ES', 'name': 'Spain (España)'}, 'id': 15221, 'info': {'alias': 'ASDF', 'comments': ' ', 'commissioning_date': '2019-12-20', 'description': ' ', 'distributor': 'fecsa', 'meter_number': 'ASFDSDAF', 'register_date': '2019-12-02'}, 'name': 'A', 'status': 'ACTIVE', 'store_bills': False, 'type': 'ELECTRICITY'},
+ {'POD': 'ES0031049987203001CF0F', 'address': {'city': '', 'coordinates': {'latitude': None, 'longitude': None}, 'country': {'code': '', 'name': ''}, 'street': '', 'zip': ''}, 'country': {'code': 'GB', 'name': 'United Kingdom'}, 'id': 16154, 'info': {'alias': 'ACM', 'comments': ' ', 'commissioning_date': None, 'description': ' ', 'distributor': '', 'meter_number': '', 'register_date': None}, 'name': 'ACM (EDIFICIS GENÈRICS LOT 19)', 'status': 'ACTIVE', 'store_bills': False, 'type': 'ELECTRICITY'},
+ {'POD': 'ES0031405987203001ARES', 'address': {'city': '', 'coordinates': {'latitude': None, 'longitude': None}, 'country': {'code': '', 'name': ''}, 'street': '', 'zip': ''}, 'country': {'code': 'ES', 'name': 'Spain (España)'}, 'id': 18836, 'info': {'alias': '', 'comments': ' ', 'commissioning_date': None, 'description': ' ', 'distributor': '', 'meter_number': '', 'register_date': None}, 'name': 'Ares', 'status': 'ACTIVE', 'store_bills': False, 'type': 'ELECTRICITY'},
+ {'POD': 'ES0031408196061001LS', 'address': {'city': '', 'coordinates': {'latitude': None, 'longitude': None}, 'country': {'code': '', 'name': ''}, 'street': '', 'zip': ''}, 'country': {'code': 'ES', 'name': 'Spain (España)'}, 'id': 15629, 'info': {'alias': '', 'comments': ' ', 'commissioning_date': None, 'description': ' ', 'distributor': '', 'meter_number': '', 'register_date': None}, 'name': 'CAP Santa Bàrbara', 'status': 'ACTIVE', 'store_bills': False, 'type': 'ELECTRICITY'}]
+
+ [SUPPLIE]
+ {'id': 21556, 'POD': 'ES0031405987203001CF0D', 'address': {'city': '', 'coordinates': {'latitude': None, 'longitude': None}, 'country': {'code': '', 'name': ''}, 'street': '', 'zip': ''}, 'country': {'code': 'ES', 'name': 'Spain (España)'}, 'info': {'alias': '', 'comments': ' ', 'commissioning_date': None, 'description': ' ', 'distributor': '', 'meter_number': '', 'register_date': None}, 'name': 'A', 'status': 'ACTIVE', 'store_bills': False, 'type': 'ELECTRICITY'}
