@@ -1,60 +1,163 @@
-[DEVICES]
-[{'datasource': {'id': 43341}, 'description': '', 'id': 1043036, 'local_id': '1a', 'location': {'id': 25653}, 'name': '1a', 'status': 'ACCEPTED'},
- {'datasource': {'id': 43341}, 'description': '', 'id': 1043037, 'local_id': '1b', 'location': {'id': 25653}, 'name': '1b', 'status': 'ACCEPTED'},
- {'datasource': {'id': 43341}, 'description': '', 'id': 1043038, 'local_id': '1c', 'location': {'id': 25653}, 'name': '1c', 'status': 'ACCEPTED'},
- {'datasource': {'id': 777}, 'description': ' ', 'id': 8857, 'local_id': '183a', 'location': {'id': 10506}, 'name': 'ACS', 'status': 'ACCEPTED'},
- {'datasource': {'id': 11189}, 'description': ' Temp acs', 'id': 90661, 'local_id': '20_5', 'location': {'id': 24857}, 'name': 'ACS', 'status': 'ACCEPTED'},
- {'datasource': {'id': 12495}, 'description': ' ', 'id': 110434, 'local_id': '3c', 'location': {'id': 25218}, 'name': 'ACS', 'status': 'ACCEPTED'},
- {'datasource': {'id': 12268}, 'description': ' ', 'id': 159981, 'local_id': '3c', 'location': {'id': 24905}, 'name': 'ACS', 'status': 'ACCEPTED'},
- {'datasource': {'id': 12409}, 'description': ' ', 'id': 160120, 'local_id': '3c', 'location': {'id': 24906}, 'name': 'ACS', 'status': 'ACCEPTED'},
- {'datasource': {'id': 12429}, 'description': ' ', 'id': 160407, 'local_id': '3c', 'location': {'id': 24954}, 'name': 'ACS', 'status': 'ACCEPTED'},
- {'datasource': {'id': 12510}, 'description': ' ', 'id': 160654, 'local_id': '3a', 'location': {'id': 25217}, 'name': 'ACS', 'status': 'ACCEPTED'}]
+**Relation between entities
 
-[DEVICE]
-{'datasource': {'id': 43341}, 'description': '', 'id': 1043036, 'local_id': '1a', 'location': {'id': 25653}, 'name': '1a', 'status': 'ACCEPTED'}
+LOCATION --> DEVICES
+             SUPPLIES
+(There are no location available)
+
+
+ENERGY_SOURCE --> SUPPLIES(PODS) --> SUPPLIE-DEVICE
+(There are no device_id reference)
+
+
+SUPPLIE --> DEVICE
+(No relation between them)
+
+
+DEVICE --> PARAMETERS    --> READINGS
+           RESOLUTION_TYPE
+
+--------------------------------------------------------------------------------------------------------
+
+[SUPPLIE ENERGY SOURCE]
+TYPE_ENERGY_SOURCE = ["GAS", "ELECTRICITY", "WATER", "THERMAL", "EXPORTED_ELECTRICITY"]
+
+[GAS]
+{'info': {'description': ' ', 'meter_number': '', 'commissioning_date': '2023-12-31', 'register_date': '2017-01-01', 'alias': '', 'comments': ' ', 'distributor': ''}, 'status': 'ACTIVE', 'name': 'CAP-RODA DE TER', 'address': {'city': '', 'street': '', 'zip': '', 'coordinates': {'latitude': None, 'longitude': None}, 'country': {'code': '', 'name': ''}}, 'country': {'code': 'GB', 'name': 'United Kingdom'}, 'POD': 'ES0031405997203001CF0F', 'store_bills': False, 'type': 'GAS', 'id': 29132}
+{'info': {'description': ' ', 'meter_number': '888888', 'commissioning_date': '2023-01-31', 'register_date': '2018-01-01', 'alias': 'EC0015', 'comments': ' ', 'distributor': ''}, 'status': 'ACTIVE', 'name': 'CGG-Torell\xc3\xb3', 'address': {'city': '', 'street': '', 'zip': '', 'coordinates': {'latitude': None, 'longitude': None}, 'country': {'code': '', 'name': ''}}, 'country': {'code': 'GB', 'name': 'United Kingdom'}, 'POD': 'ES0031405987203001CF0F', 'store_bills': False, 'type': 'GAS', 'id': 29135}
+{'info': {'description': ' ', 'meter_number': '', 'commissioning_date': None, 'register_date': None, 'alias': '', 'comments': ' ', 'distributor': ''}, 'status': 'ACTIVE', 'name': 'Consum Gas Cambrils', 'address': {'city': '', 'street': '', 'zip': '', 'coordinates': {'latitude': None, 'longitude': None}, 'country': {'code': '', 'name': ''}}, 'country': {'code': 'ES', 'name': 'Spain (Espa\xc3\xb1a)'}, 'POD': '456789', 'store_bills': False, 'type': 'GAS', 'id': 496}
+{'info': {'description': ' ', 'meter_number': '', 'commissioning_date': None, 'register_date': None, 'alias': '', 'comments': ' ', 'distributor': ''}, 'status': 'ACTIVE', 'name': 'Escola Les Falgueres (Celr\xc3\xa0)', 'address': {'city': '', 'street': '', 'zip': '', 'coordinates': {'latitude': None, 'longitude': None}, 'country': {'code': '', 'name': ''}}, 'country': {'code': 'ES', 'name': 'Spain (Espa\xc3\xb1a)'}, 'POD': 'ND20GAS-ETK', 'store_bills': False, 'type': 'GAS', 'id': 15481}
+{'info': {'description': ' ', 'meter_number': '', 'commissioning_date': None, 'register_date': None, 'alias': '', 'comments': ' ', 'distributor': ''}, 'status': 'ACTIVE', 'name': 'Escola Pi Verd (Palafrugell)', 'address': {'city': '', 'street': '', 'zip': '', 'coordinates': {'latitude': None, 'longitude': None}, 'country': {'code': '', 'name': ''}}, 'country': {'code': 'ES', 'name': 'Spain (Espa\xc3\xb1a)'}, 'POD': 'ES0031405987203001CF1E', 'store_bills': False, 'type': 'GAS', 'id': 16248}
+{'info': {'description': ' ', 'meter_number': '', 'commissioning_date': None, 'register_date': None, 'alias': '', 'comments': ' ', 'distributor': ''}, 'status': 'ACTIVE', 'name': 'Gas - CAP Blanes', 'address': {'city': '', 'street': '', 'zip': '', 'coordinates': {'latitude': None, 'longitude': None}, 'country': {'code': '', 'name': ''}}, 'country': {'code': 'ES', 'name': 'Spain (Espa\xc3\xb1a)'}, 'POD': 'NDGAS1-ETK', 'store_bills': False, 'type': 'GAS', 'id': 15282}
+{'info': {'description': ' ', 'meter_number': '', 'commissioning_date': None, 'register_date': None, 'alias': '', 'comments': ' ', 'distributor': ''}, 'status': 'ACTIVE', 'name': 'Gas - CAP Caldes de Malavella', 'address': {'city': '', 'street': '', 'zip': '', 'coordinates': {'latitude': None, 'longitude': None}, 'country': {'code': '', 'name': ''}}, 'country': {'code': 'ES', 'name': 'Spain (Espa\xc3\xb1a)'}, 'POD': 'NDGAS0-ETK', 'store_bills': False, 'type': 'GAS', 'id': 15277}
+{'info': {'description': ' ', 'meter_number': '', 'commissioning_date': None, 'register_date': None, 'alias': '', 'comments': ' ', 'distributor': ''}, 'status': 'ACTIVE', 'name': 'Gas CAP Cardedeu', 'address': {'city': '', 'street': '', 'zip': '', 'coordinates': {'latitude': None, 'longitude': None}, 'country': {'code': '', 'name': ''}}, 'country': {'code': 'ES', 'name': 'Spain (Espa\xc3\xb1a)'}, 'POD': '68-07000986', 'store_bills': False, 'type': 'GAS', 'id': 16130}
+{'info': {'description': ' ', 'meter_number': '', 'commissioning_date': None, 'register_date': None, 'alias': '', 'comments': ' ', 'distributor': ''}, 'status': 'ACTIVE', 'name': 'Gas CAP Conc\xc3\xb2rdia', 'address': {'city': '', 'street': '', 'zip': '', 'coordinates': {'latitude': None, 'longitude': None}, 'country': {'code': '', 'name': ''}}, 'country': {'code': 'ES', 'name': 'Spain (Espa\xc3\xb1a)'}, 'POD': '5107001054', 'store_bills': False, 'type': 'GAS', 'id': 16123}
+{'info': {'description': ' ', 'meter_number': '', 'commissioning_date': None, 'register_date': None, 'alias': '', 'comments': ' ', 'distributor': ''}, 'status': 'ACTIVE', 'name': 'Gas CAP Gracia Lepant', 'address': {'city': '', 'street': '', 'zip': '', 'coordinates': {'latitude': None, 'longitude': None}, 'country': {'code': '', 'name': ''}}, 'country': {'code': 'ES', 'name': 'Spain (Espa\xc3\xb1a)'}, 'POD': '07-11045268', 'store_bills': False, 'type': 'GAS', 'id': 16126}
+
+[ELECTRICITY]
+{'info': {'description': ' ', 'meter_number': '', 'commissioning_date': None, 'register_date': None, 'alias': '', 'comments': ' ', 'distributor': ''}, 'status': 'ACTIVE', 'name': 'A', 'address': {'city': '', 'street': '', 'zip': '', 'coordinates': {'latitude': None, 'longitude': None}, 'country': {'code': '', 'name': ''}}, 'country': {'code': 'ES', 'name': 'Spain (Espa\xc3\xb1a)'}, 'POD': 'ES0031405987203001CF0D', 'store_bills': False, 'type': 'ELECTRICITY', 'id': 21556}
+{'info': {'description': ' ', 'meter_number': 'ASFDSDAF', 'commissioning_date': '2019-12-20', 'register_date': '2019-12-02', 'alias': 'ASDF', 'comments': ' ', 'distributor': 'fecsa'}, 'status': 'ACTIVE', 'name': 'A', 'address': {'city': 'ciutat', 'street': 'direccion', 'zip': 'cp', 'coordinates': {'latitude': None, 'longitude': None}, 'country': {'code': '', 'name': 'pais'}}, 'country': {'code': 'ES', 'name': 'Spain (Espa\xc3\xb1a)'}, 'POD': 'DESFASDFSDF', 'store_bills': False, 'type': 'ELECTRICITY', 'id': 15221}
+{'info': {'description': ' ', 'meter_number': '', 'commissioning_date': None, 'register_date': None, 'alias': 'ACM', 'comments': ' ', 'distributor': ''}, 'status': 'ACTIVE', 'name': 'ACM (EDIFICIS GEN\xc3\x88RICS LOT 19)', 'address': {'city': '', 'street': '', 'zip': '', 'coordinates': {'latitude': None, 'longitude': None}, 'country': {'code': '', 'name': ''}}, 'country': {'code': 'GB', 'name': 'United Kingdom'}, 'POD': 'ES0031049987203001CF0F', 'store_bills': False, 'type': 'ELECTRICITY', 'id': 16154}
+{'info': {'description': ' ', 'meter_number': '', 'commissioning_date': None, 'register_date': None, 'alias': '', 'comments': ' ', 'distributor': ''}, 'status': 'ACTIVE', 'name': 'Ares', 'address': {'city': '', 'street': '', 'zip': '', 'coordinates': {'latitude': None, 'longitude': None}, 'country': {'code': '', 'name': ''}}, 'country': {'code': 'ES', 'name': 'Spain (Espa\xc3\xb1a)'}, 'POD': 'ES0031405987203001ARES', 'store_bills': False, 'type': 'ELECTRICITY', 'id': 18836}
+{'info': {'description': ' ', 'meter_number': '', 'commissioning_date': None, 'register_date': None, 'alias': '', 'comments': ' ', 'distributor': ''}, 'status': 'ACTIVE', 'name': 'CAP Santa B\xc3\xa0rbara', 'address': {'city': '', 'street': '', 'zip': '', 'coordinates': {'latitude': None, 'longitude': None}, 'country': {'code': '', 'name': ''}}, 'country': {'code': 'ES', 'name': 'Spain (Espa\xc3\xb1a)'}, 'POD': 'ES0031408196061001LS', 'store_bills': False, 'type': 'ELECTRICITY', 'id': 15629}
+{'info': {'description': ' ', 'meter_number': '', 'commissioning_date': None, 'register_date': None, 'alias': '', 'comments': ' ', 'distributor': ''}, 'status': 'ACTIVE', 'name': 'CAP Ulldecona', 'address': {'city': '', 'street': '', 'zip': '', 'coordinates': {'latitude': None, 'longitude': None}, 'country': {'code': '', 'name': ''}}, 'country': {'code': 'ES', 'name': 'Spain (Espa\xc3\xb1a)'}, 'POD': 'ES0031408352903001JR', 'store_bills': False, 'type': 'ELECTRICITY', 'id': 15571}
+{'info': {'description': ' ', 'meter_number': '', 'commissioning_date': '2028-01-31', 'register_date': '2019-01-02', 'alias': '', 'comments': ' ', 'distributor': ''}, 'status': 'ACTIVE', 'name': 'Casal Sant Pere Test', 'address': {'city': 'Barcelon', 'street': '', 'zip': '08013', 'coordinates': {'latitude': 41.40312, 'longitude': 2.181871}, 'country': {'code': '', 'name': 'Espanya'}}, 'country': {'code': 'ES', 'name': 'Spain (Espa\xc3\xb1a)'}, 'POD': 'ninfuf483820834', 'store_bills': False, 'type': 'ELECTRICITY', 'id': 27757}
+{'info': {'description': ' ', 'meter_number': '', 'commissioning_date': None, 'register_date': None, 'alias': '', 'comments': ' ', 'distributor': ''}, 'status': 'ACTIVE', 'name': 'CEIP La Fatarella', 'address': {'city': '', 'street': '', 'zip': '', 'coordinates': {'latitude': None, 'longitude': None}, 'country': {'code': '', 'name': ''}}, 'country': {'code': 'ES', 'name': 'Spain (Espa\xc3\xb1a)'}, 'POD': 'ES0031408469567001DC0F', 'store_bills': False, 'type': 'ELECTRICITY', 'id': 15197}
+{'info': {'description': ' ', 'meter_number': '', 'commissioning_date': None, 'register_date': None, 'alias': '', 'comments': ' ', 'distributor': ''}, 'status': 'ACTIVE', 'name': "CEIP L'Olivera", 'address': {'city': '', 'street': '', 'zip': '', 'coordinates': {'latitude': None, 'longitude': None}, 'country': {'code': '', 'name': ''}}, 'country': {'code': 'ES', 'name': 'Spain (Espa\xc3\xb1a)'}, 'POD': 'ES0031408253748001TW0F', 'store_bills': False, 'type': 'ELECTRICITY', 'id': 23963}
+{'info': {'description': ' ', 'meter_number': '', 'commissioning_date': '2020-12-31', 'register_date': '2020-01-01', 'alias': '', 'comments': ' ', 'distributor': ''}, 'status': 'ACTIVE', 'name': 'CEIP Port Rod\xc3\xb3', 'address': {'city': '', 'street': '', 'zip': '', 'coordinates': {'latitude': None, 'longitude': None}, 'country': {'code': '', 'name': ''}}, 'country': {'code': 'ES', 'name': 'Spain (Espa\xc3\xb1a)'}, 'POD': 'ES0031405656820001PR0F', 'store_bills': False, 'type': 'ELECTRICITY', 'id': 16364}
+
+[WATER]
+{'info': {'description': '', 'meter_number': '902911314', 'commissioning_date': '2014-12-31', 'register_date': '2012-02-01', 'alias': '', 'comments': '', 'distributor': 'SOREA'}, 'status': 'ACTIVE', 'name': 'AGUA FVB', 'address': {'city': '', 'street': '', 'zip': '', 'coordinates': {'latitude': None, 'longitude': None}, 'country': {'code': '', 'name': ''}}, 'country': {'code': 'ES', 'name': 'Spain (Espa\xc3\xb1a)'}, 'POD': '902911314', 'store_bills': False, 'type': 'WATER', 'id': 500}
+{'info': {'description': ' ', 'meter_number': '', 'commissioning_date': None, 'register_date': None, 'alias': '', 'comments': ' ', 'distributor': ''}, 'status': 'ACTIVE', 'name': 'Aigua CAP Cardedeu', 'address': {'city': '', 'street': '', 'zip': '', 'coordinates': {'latitude': None, 'longitude': None}, 'country': {'code': '', 'name': ''}}, 'country': {'code': 'ES', 'name': 'Spain (Espa\xc3\xb1a)'}, 'POD': '0CA0061561', 'store_bills': False, 'type': 'WATER', 'id': 16132}
+{'info': {'description': ' ', 'meter_number': '', 'commissioning_date': None, 'register_date': None, 'alias': '', 'comments': ' ', 'distributor': ''}, 'status': 'ACTIVE', 'name': 'Aigua CAP Conc\xc3\xb2rdia', 'address': {'city': '', 'street': '', 'zip': '', 'coordinates': {'latitude': None, 'longitude': None}, 'country': {'code': '', 'name': ''}}, 'country': {'code': 'ES', 'name': 'Spain (Espa\xc3\xb1a)'}, 'POD': '16-152334', 'store_bills': False, 'type': 'WATER', 'id': 16122}
+{'info': {'description': ' ', 'meter_number': '', 'commissioning_date': None, 'register_date': None, 'alias': '', 'comments': ' ', 'distributor': ''}, 'status': 'ACTIVE', 'name': 'Aigua CAP Gracia Lepant', 'address': {'city': '', 'street': '', 'zip': '', 'coordinates': {'latitude': None, 'longitude': None}, 'country': {'code': '', 'name': ''}}, 'country': {'code': 'ES', 'name': 'Spain (Espa\xc3\xb1a)'}, 'POD': '09W718884', 'store_bills': False, 'type': 'WATER', 'id': 16125}
+{'info': {'description': ' ', 'meter_number': '', 'commissioning_date': None, 'register_date': None, 'alias': '', 'comments': ' ', 'distributor': ''}, 'status': 'ACTIVE', 'name': 'Aigua CAP La Florida (Sta. Perp\xc3\xa8tua)', 'address': {'city': '', 'street': '', 'zip': '', 'coordinates': {'latitude': None, 'longitude': None}, 'country': {'code': '', 'name': ''}}, 'country': {'code': 'ES', 'name': 'Spain (Espa\xc3\xb1a)'}, 'POD': '09W716687', 'store_bills': False, 'type': 'WATER', 'id': 16129}
+{'info': {'description': ' ', 'meter_number': '', 'commissioning_date': None, 'register_date': None, 'alias': '', 'comments': ' ', 'distributor': ''}, 'status': 'ACTIVE', 'name': 'Aigua CAP La Garriga', 'address': {'city': '', 'street': '', 'zip': '', 'coordinates': {'latitude': None, 'longitude': None}, 'country': {'code': '', 'name': ''}}, 'country': {'code': 'ES', 'name': 'Spain (Espa\xc3\xb1a)'}, 'POD': '0AC6003001', 'store_bills': False, 'type': 'WATER', 'id': 16134}
+{'info': {'description': ' ', 'meter_number': '', 'commissioning_date': None, 'register_date': None, 'alias': '', 'comments': ' ', 'distributor': ''}, 'status': 'ACTIVE', 'name': "Aigua CAP Palaud\xc3\xa0ries (Lli\xc3\xa7\xc3\xa0 d'Amunt)", 'address': {'city': '', 'street': '', 'zip': '', 'coordinates': {'latitude': None, 'longitude': None}, 'country': {'code': '', 'name': ''}}, 'country': {'code': 'ES', 'name': 'Spain (Espa\xc3\xb1a)'}, 'POD': '09SD456802', 'store_bills': False, 'type': 'WATER', 'id': 16135}
+{'info': {'description': ' ', 'meter_number': '', 'commissioning_date': None, 'register_date': None, 'alias': '', 'comments': ' ', 'distributor': ''}, 'status': 'ACTIVE', 'name': 'Aigua CAP Palau Solit\xc3\xa0', 'address': {'city': '', 'street': '', 'zip': '', 'coordinates': {'latitude': None, 'longitude': None}, 'country': {'code': '', 'name': ''}}, 'country': {'code': 'ES', 'name': 'Spain (Espa\xc3\xb1a)'}, 'POD': 'A10WF7009720', 'store_bills': False, 'type': 'WATER', 'id': 16120}
+{'info': {'description': ' ', 'meter_number': '', 'commissioning_date': None, 'register_date': None, 'alias': '', 'comments': ' ', 'distributor': ''}, 'status': 'ACTIVE', 'name': 'Aigua CAP Tur\xc3\xb3 de Can Mates (Sant Cugat del Vall\xc3\xa8s)', 'address': {'city': '', 'street': '', 'zip': '', 'coordinates': {'latitude': None, 'longitude': None}, 'country': {'code': '', 'name': ''}}, 'country': {'code': 'ES', 'name': 'Spain (Espa\xc3\xb1a)'}, 'POD': '11TC092005', 'store_bills': False, 'type': 'WATER', 'id': 16138}
+{'info': {'description': ' ', 'meter_number': '', 'commissioning_date': None, 'register_date': None, 'alias': '', 'comments': ' ', 'distributor': ''}, 'status': 'ACTIVE', 'name': 'Aigua Casal Civic Camp Clar (Tarragona)', 'address': {'city': '', 'street': '', 'zip': '', 'coordinates': {'latitude': None, 'longitude': None}, 'country': {'code': '', 'name': ''}}, 'country': {'code': 'ES', 'name': 'Spain (Espa\xc3\xb1a)'}, 'POD': '1839491', 'store_bills': False, 'type': 'WATER', 'id': 15708}
+
+
+[SUPPLIE]
+ELECTRICITY
+supplie_id=21556
+
+
+{'POD': 'ES0031405987203001CF0D', 'address': {'city': '', 'coordinates': {'latitude': None, 'longitude': None}, 'country': {'code': '', 'name': ''}, 'street': '', 'zip': ''}, 'country': {'code': 'ES', 'name': 'Spain (España)'}, 'id': 21556, 'info': {'alias': '', 'comments': ' ', 'commissioning_date': None, 'description': ' ', 'distributor': '', 'meter_number': '', 'register_date': None}, 'name': 'A', 'status': 'ACTIVE', 'store_bills': False, 'type': 'ELECTRICITY'}
+
+[SUPPLIE_DEVICE]
+suplie_id=15221
+>>>Sin datos que vincule con device
+
+{'POD': 'DESFASDFSDF', 'address': {'city': 'ciutat', 'coordinates': {'latitude': None, 'longitude': None}, 'country': {'code': '', 'name': 'pais'}, 'street': 'direccion', 'zip': 'cp'}, 'country': {'code': 'ES', 'name': 'Spain (España)'}, 'id': 15221, 'info': {'alias': 'ASDF', 'comments': ' ', 'commissioning_date': '2019-12-20', 'description': ' ', 'distributor': 'fecsa', 'meter_number': 'ASFDSDAF', 'register_date': '2019-12-02'}, 'name': 'A', 'status': 'ACTIVE', 'store_bills': False, 'type': 'ELECTRICITY'}
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+[DEVICES]
+{'status': 'ACCEPTED', 'name': '1a', 'description': '', 'local_id': '1a', 'location': {'id': 25653}, 'id': 1043036, 'datasource': {'id': 43341}}
+{'status': 'ACCEPTED', 'name': '1b', 'description': '', 'local_id': '1b', 'location': None, 'id': 1033630, 'datasource': {'id': 42656}}
+{'status': 'ACCEPTED', 'name': '1b', 'description': '', 'local_id': '1b', 'location': {'id': 25653}, 'id': 1043037, 'datasource': {'id': 43341}}
+{'status': 'ACCEPTED', 'name': '1c', 'description': '', 'local_id': '1c', 'location': None, 'id': 1033631, 'datasource': {'id': 42656}}
+{'status': 'ACCEPTED', 'name': '1c', 'description': '', 'local_id': '1c', 'location': {'id': 25653}, 'id': 1043038, 'datasource': {'id': 43341}}
+{'status': 'ACCEPTED', 'name': '2b', 'description': '', 'local_id': '2b', 'location': None, 'id': 1033740, 'datasource': {'id': 42656}}
+{'status': 'ACCEPTED', 'name': '3a', 'description': '', 'local_id': '3a', 'location': None, 'id': 1033633, 'datasource': {'id': 42656}}
+{'status': 'ACCEPTED', 'name': '4a', 'description': '', 'local_id': '4a', 'location': None, 'id': 1034030, 'datasource': {'id': 42656}}
+{'status': 'ACCEPTED', 'name': '4b', 'description': '', 'local_id': '4b', 'location': None, 'id': 1034031, 'datasource': {'id': 42656}}
+{'status': 'ACCEPTED', 'name': '4c', 'description': '', 'local_id': '4c', 'location': None, 'id': 1034032, 'datasource': {'id': 42656}}
+{'status': 'ACCEPTED', 'name': 'ACS', 'description': ' ', 'local_id': '183a', 'location': {'id': 10506}, 'id': 8857, 'datasource': {'id': 777}}
+{'status': 'ACCEPTED', 'name': 'ACS', 'description': ' Temp acs', 'local_id': '20_5', 'location': {'id': 24857}, 'id': 90661, 'datasource': {'id': 11189}}
+{'status': 'ACCEPTED', 'name': 'ACS', 'description': ' ', 'local_id': '3c', 'location': {'id': 25218}, 'id': 110434, 'datasource': {'id': 12495}}
+{'status': 'ACCEPTED', 'name': 'ACS', 'description': ' ', 'local_id': '3c', 'location': {'id': 24905}, 'id': 159981, 'datasource': {'id': 12268}}
+{'status': 'ACCEPTED', 'name': 'ACS', 'description': ' ', 'local_id': '3c', 'location': {'id': 24906}, 'id': 160120, 'datasource': {'id': 12409}}
+{'status': 'ACCEPTED', 'name': 'ACS', 'description': ' ', 'local_id': '3c', 'location': {'id': 24954}, 'id': 160407, 'datasource': {'id': 12429}}
+{'status': 'ACCEPTED', 'name': 'ACS', 'description': ' ', 'local_id': '3a', 'location': {'id': 25217}, 'id': 160654, 'datasource': {'id': 12510}}
+{'status': 'ACCEPTED', 'name': 'ACS', 'description': ' ', 'local_id': '3a', 'location': {'id': 24817}, 'id': 160676, 'datasource': {'id': 12272}}
+{'status': 'ACCEPTED', 'name': 'ACS', 'description': ' ', 'local_id': '3c', 'location': {'id': 25216}, 'id': 160685, 'datasource': {'id': 12508}}
+{'status': 'ACCEPTED', 'name': 'ACS', 'description': ' ', 'local_id': '3a', 'location': {'id': 24957}, 'id': 161569, 'datasource': {'id': 12435}}
+{'status': 'ACCEPTED', 'name': 'ACS', 'description': ' ', 'local_id': '3a', 'location': {'id': 24955}, 'id': 161961, 'datasource': {'id': 12431}}
+{'status': 'ACCEPTED', 'name': 'ACS', 'description': ' ', 'local_id': '3c', 'location': {'id': 24956}, 'id': 162254, 'datasource': {'id': 12438}}
+{'status': 'ACCEPTED', 'name': 'ACS', 'description': ' Temperatura acumulaci\xc3\xb3 ACS', 'local_id': '20_9', 'location': {'id': 33521}, 'id': 188882, 'datasource': {'id': 15062}}
+{'status': 'ACCEPTED', 'name': 'ACS', 'description': ' ', 'local_id': '20_4', 'location': {'id': 28142}, 'id': 189639, 'datasource': {'id': 15915}}
+{'status': 'ACCEPTED', 'name': 'ACS', 'description': ' Temperatura ACS', 'local_id': '17b', 'location': {'id': 10521}, 'id': 320087, 'datasource': {'id': 792}}
+{'status': 'ACCEPTED', 'name': 'ACS', 'description': ' Temperatura ACS', 'local_id': '21a', 'location': {'id': 10470}, 'id': 320311, 'datasource': {'id': 742}}
+{'status': 'ACCEPTED', 'name': 'ACS', 'description': ' Temperatura ACSa', 'local_id': 'Temperatura ACSa', 'location': {'id': 10462}, 'id': 320793, 'datasource': {'id': 734}}
+{'status': 'ACCEPTED', 'name': 'ACS', 'description': ' Temperatura ACS', 'local_id': '21a', 'location': {'id': 11077}, 'id': 320829, 'datasource': {'id': 1320}}
+{'status': 'ACCEPTED', 'name': 'ACS', 'description': ' Temperatura ACSa', 'local_id': 'Temperatura ACSa', 'location': {'id': 10488}, 'id': 321071, 'datasource': {'id': 760}}
+{'status': 'ACCEPTED', 'name': 'ACS', 'description': ' Temperatura ACS', 'local_id': '17a', 'location': {'id': 10581}, 'id': 321086, 'datasource': {'id': 848}}
 
 [DATAPOINTS]
-[{'id': 406, 'status': 'ACCEPTED'}, {'id': 401, 'status': 'ACCEPTED'}, {'id': 405, 'status': 'ACCEPTED'}]
-
-[PARAMETERS]
 device_id = 1043036
-[{'color': '#F25A5A', 'i18n_name_key': 'servicetype.current', 'icon': 'electricity', 'id': 406, 'key': 'CURRENT', 'name': 'Current', 'nature': 'INSTANTANEOUS', 'units': 'A'},
- {'color': '#F25A5A', 'i18n_name_key': 'servicetype.power', 'icon': 'electricity', 'id': 401, 'key': 'POWER', 'name': 'Power', 'nature': 'INSTANTANEOUS', 'units': 'kW'},
- {'color': '#F25A5A', 'i18n_name_key': 'servicetype.voltage', 'icon': 'electricity', 'id': 405, 'key': 'VOLTAGE', 'name': 'Voltage', 'nature': 'INSTANTANEOUS', 'units': 'V'}]
+[{'id': 406, 'status': 'ACCEPTED'}, {'id': 401, 'status': 'ACCEPTED'}, {'id': 405, 'status': 'ACCEPTED'}]
+device_id = 1033630
+[{'id': 406, 'status': 'ACCEPTED'}, {'id': 401, 'status': 'ACCEPTED'}, {'id': 405, 'status': 'ACCEPTED'}]
+device_id = 8857
+[{'id': 301, 'status': 'ACCEPTED'}]
 
-[RESOLUTIONS]
-device_id =1043036
-NO DATA
+[DATASOURCE]
+Los datasource obtenidos del punto anterior, no se encuentran como datasource.
 
-[READINGS BY PARAMETER KEY]
-Params:
-device_id =1043036
-parameter_key = 'CURRENT'
-resolution = 'H'
-from_="2020-01-01"
-to_="2021-01-01"
+
+[PARAMETER]
+device_id=1043036
 
 [{'color': '#F25A5A', 'i18n_name_key': 'servicetype.current', 'icon': 'electricity', 'id': 406, 'key': 'CURRENT', 'name': 'Current', 'nature': 'INSTANTANEOUS', 'units': 'A'}, {'color': '#F25A5A', 'i18n_name_key': 'servicetype.power', 'icon': 'electricity', 'id': 401, 'key': 'POWER', 'name': 'Power', 'nature': 'INSTANTANEOUS', 'units': 'kW'}, {'color': '#F25A5A', 'i18n_name_key': 'servicetype.voltage', 'icon': 'electricity', 'id': 405, 'key': 'VOLTAGE', 'name': 'Voltage', 'nature': 'INSTANTANEOUS', 'units': 'V'}]
 
-Params:
-device_id =1043036
-parameter_key = 'CURRENT'
-resolution = 'H'
-from_="2020-01-01"
-to_="2021-01-01"
-operation = MAX
-
-{'timezone': 'Europe/Madrid', 'units': 'A', 'values': []}
+device_id = 8857
+[{'color': '#FFC400', 'i18n_name_key': 'servicetype.temperature', 'icon': 'temp', 'id': 301, 'key': 'TEMP', 'name': 'Temperature', 'nature': 'INSTANTANEOUS', 'units': '℃'}]
 
 
-[ENERGY SOURCE SUPPLIES]
-energy_source = "ELECTRICITY"
+[RESOLUTION]
+device_id=1043036 NO RESOLUTION
+device_id = 8857 NO RESOLUTION
+No found device_id with resolution
 
-[{'POD': 'ES0031405987203001CF0D', 'address': {'city': '', 'coordinates': {'latitude': None, 'longitude': None}, 'country': {'code': '', 'name': ''}, 'street': '', 'zip': ''}, 'country': {'code': 'ES', 'name': 'Spain (España)'}, 'id': 21556, 'info': {'alias': '', 'comments': ' ', 'commissioning_date': None, 'description': ' ', 'distributor': '', 'meter_number': '', 'register_date': None}, 'name': 'A', 'status': 'ACTIVE', 'store_bills': False, 'type': 'ELECTRICITY'},
- {'POD': 'DESFASDFSDF', 'address': {'city': 'ciutat', 'coordinates': {'latitude': None, 'longitude': None}, 'country': {'code': '', 'name': 'pais'}, 'street': 'direccion', 'zip': 'cp'}, 'country': {'code': 'ES', 'name': 'Spain (España)'}, 'id': 15221, 'info': {'alias': 'ASDF', 'comments': ' ', 'commissioning_date': '2019-12-20', 'description': ' ', 'distributor': 'fecsa', 'meter_number': 'ASFDSDAF', 'register_date': '2019-12-02'}, 'name': 'A', 'status': 'ACTIVE', 'store_bills': False, 'type': 'ELECTRICITY'},
- {'POD': 'ES0031049987203001CF0F', 'address': {'city': '', 'coordinates': {'latitude': None, 'longitude': None}, 'country': {'code': '', 'name': ''}, 'street': '', 'zip': ''}, 'country': {'code': 'GB', 'name': 'United Kingdom'}, 'id': 16154, 'info': {'alias': 'ACM', 'comments': ' ', 'commissioning_date': None, 'description': ' ', 'distributor': '', 'meter_number': '', 'register_date': None}, 'name': 'ACM (EDIFICIS GENÈRICS LOT 19)', 'status': 'ACTIVE', 'store_bills': False, 'type': 'ELECTRICITY'},
- {'POD': 'ES0031405987203001ARES', 'address': {'city': '', 'coordinates': {'latitude': None, 'longitude': None}, 'country': {'code': '', 'name': ''}, 'street': '', 'zip': ''}, 'country': {'code': 'ES', 'name': 'Spain (España)'}, 'id': 18836, 'info': {'alias': '', 'comments': ' ', 'commissioning_date': None, 'description': ' ', 'distributor': '', 'meter_number': '', 'register_date': None}, 'name': 'Ares', 'status': 'ACTIVE', 'store_bills': False, 'type': 'ELECTRICITY'},
- {'POD': 'ES0031408196061001LS', 'address': {'city': '', 'coordinates': {'latitude': None, 'longitude': None}, 'country': {'code': '', 'name': ''}, 'street': '', 'zip': ''}, 'country': {'code': 'ES', 'name': 'Spain (España)'}, 'id': 15629, 'info': {'alias': '', 'comments': ' ', 'commissioning_date': None, 'description': ' ', 'distributor': '', 'meter_number': '', 'register_date': None}, 'name': 'CAP Santa Bàrbara', 'status': 'ACTIVE', 'store_bills': False, 'type': 'ELECTRICITY'}]
 
- [SUPPLIE]
- {'id': 21556, 'POD': 'ES0031405987203001CF0D', 'address': {'city': '', 'coordinates': {'latitude': None, 'longitude': None}, 'country': {'code': '', 'name': ''}, 'street': '', 'zip': ''}, 'country': {'code': 'ES', 'name': 'Spain (España)'}, 'info': {'alias': '', 'comments': ' ', 'commissioning_date': None, 'description': ' ', 'distributor': '', 'meter_number': '', 'register_date': None}, 'name': 'A', 'status': 'ACTIVE', 'store_bills': False, 'type': 'ELECTRICITY'}
+[READINGS BY PARAMETER KEY]
+TYPE_RESOLUTION = ["FM", "TM", "QH", "HH", "H", "D", "W", "M", "B"]
+
+device_id=1043036
+parameter_key='CURRENT'
+resolution='H'
+from_="2022-03-01"
+to_="2022-03-02"
+
+{'timezone': 'Europe/Madrid', 'units': 'A', 'values': [{'ts': '2022-03-01T00:00:00+01:00', 'v': 127.0}, {'ts': '2022-03-01T01:00:00+01:00', 'v': 135.0}, {'ts': '2022-03-01T02:00:00+01:00', 'v': 98.0}, {'ts': '2022-03-01T03:00:00+01:00', 'v': 121.0}, {'ts': '2022-03-01T04:00:00+01:00', 'v': 136.0}, {'ts': '2022-03-01T05:00:00+01:00', 'v': 110.0}, {'ts': '2022-03-01T06:00:00+01:00', 'v': 94.0}, {'ts': '2022-03-01T07:00:00+01:00', 'v': 733.0}, {'ts': '2022-03-01T08:00:00+01:00', 'v': 632.0}, {'ts': '2022-03-01T09:00:00+01:00', 'v': 1858.0}, {'ts': '2022-03-01T10:00:00+01:00', 'v': 1829.0}, {'ts': '2022-03-01T11:00:00+01:00', 'v': 1594.0}, {'ts': '2022-03-01T12:00:00+01:00', 'v': 1718.0}, {'ts': '2022-03-01T13:00:00+01:00', 'v': 1472.0}, {'ts': '2022-03-01T14:00:00+01:00', 'v': 1550.0}, {'ts': '2022-03-01T15:00:00+01:00', 'v': 1935.0}, {'ts': '2022-03-01T16:00:00+01:00', 'v': 1288.0}, {'ts': '2022-03-01T17:00:00+01:00', 'v': 601.0}, {'ts': '2022-03-01T18:00:00+01:00', 'v': 386.0}, {'ts': '2022-03-01T19:00:00+01:00', 'v': 401.0}, {'ts': '2022-03-01T20:00:00+01:00', 'v': 338.0}, {'ts': '2022-03-01T21:00:00+01:00', 'v': 210.0}, {'ts': '2022-03-01T22:00:00+01:00', 'v': 101.0}, {'ts': '2022-03-01T23:00:00+01:00', 'v': 102.0}, {'ts': '2022-03-02T00:00:00+01:00', 'v': 100.0}]}
+
+device_id=1043036
+parameter_key='POWER'
+resolution='H'
+from_="2022-03-01"
+to_="2022-03-02"
+
+
+{'timezone': 'Europe/Madrid', 'units': 'kW', 'values': [{'ts': '2022-03-01T00:00:00+01:00', 'v': 1.986}, {'ts': '2022-03-01T01:00:00+01:00', 'v': 2.949}, {'ts': '2022-03-01T02:00:00+01:00', 'v': 2.045}, {'ts': '2022-03-01T03:00:00+01:00', 'v': 2.501}, {'ts': '2022-03-01T04:00:00+01:00', 'v': 3.004}, {'ts': '2022-03-01T05:00:00+01:00', 'v': 2.268}, {'ts': '2022-03-01T06:00:00+01:00', 'v': 1.953}, {'ts': '2022-03-01T07:00:00+01:00', 'v': 16.864}, {'ts': '2022-03-01T08:00:00+01:00', 'v': 14.25}, {'ts': '2022-03-01T09:00:00+01:00', 'v': 35.522}, {'ts': '2022-03-01T10:00:00+01:00', 'v': 37.285}, {'ts': '2022-03-01T11:00:00+01:00', 'v': 31.68}, {'ts': '2022-03-01T12:00:00+01:00', 'v': 34.92}, {'ts': '2022-03-01T13:00:00+01:00', 'v': 30.754}, {'ts': '2022-03-01T14:00:00+01:00', 'v': 32.961}, {'ts': '2022-03-01T15:00:00+01:00', 'v': 38.954}, {'ts': '2022-03-01T16:00:00+01:00', 'v': 27.112}, {'ts': '2022-03-01T17:00:00+01:00', 'v': 13.121}, {'ts': '2022-03-01T18:00:00+01:00', 'v': 8.752}, {'ts': '2022-03-01T19:00:00+01:00', 'v': 8.931}, {'ts': '2022-03-01T20:00:00+01:00', 'v': 7.522}, {'ts': '2022-03-01T21:00:00+01:00', 'v': 4.873}, {'ts': '2022-03-01T22:00:00+01:00', 'v': 2.078}, {'ts': '2022-03-01T23:00:00+01:00', 'v': 2.108}, {'ts': '2022-03-02T00:00:00+01:00', 'v': 2.052}]}
+
+
+device_id=1043036
+parameter_key='VOLTAGE'
+resolution='H'
+from_="2022-03-01"
+to_="2022-03-02"
+
+{'timezone': 'Europe/Madrid', 'units': 'V', 'values': [{'ts': '2022-03-01T00:00:00+01:00', 'v': 16394.0}, {'ts': '2022-03-01T01:00:00+01:00', 'v': 16375.0}, {'ts': '2022-03-01T02:00:00+01:00', 'v': 16280.0}, {'ts': '2022-03-01T03:00:00+01:00', 'v': 16283.0}, {'ts': '2022-03-01T04:00:00+01:00', 'v': 16293.0}, {'ts': '2022-03-01T05:00:00+01:00', 'v': 16263.0}, {'ts': '2022-03-01T06:00:00+01:00', 'v': 16305.0}, {'ts': '2022-03-01T07:00:00+01:00', 'v': 16138.0}, {'ts': '2022-03-01T08:00:00+01:00', 'v': 16085.0}, {'ts': '2022-03-01T09:00:00+01:00', 'v': 15821.0}, {'ts': '2022-03-01T10:00:00+01:00', 'v': 15959.0}, {'ts': '2022-03-01T11:00:00+01:00', 'v': 16126.0}, {'ts': '2022-03-01T12:00:00+01:00', 'v': 16007.0}, {'ts': '2022-03-01T13:00:00+01:00', 'v': 16088.0}, {'ts': '2022-03-01T14:00:00+01:00', 'v': 16023.0}, {'ts': '2022-03-01T15:00:00+01:00', 'v': 15890.0}, {'ts': '2022-03-01T16:00:00+01:00', 'v': 15985.0}, {'ts': '2022-03-01T17:00:00+01:00', 'v': 16079.0}, {'ts': '2022-03-01T18:00:00+01:00', 'v': 16070.0}, {'ts': '2022-03-01T19:00:00+01:00', 'v': 16070.0}, {'ts': '2022-03-01T20:00:00+01:00', 'v': 16101.0}, {'ts': '2022-03-01T21:00:00+01:00', 'v': 16338.0}, {'ts': '2022-03-01T22:00:00+01:00', 'v': 16237.0}, {'ts': '2022-03-01T23:00:00+01:00', 'v': 16274.0}, {'ts': '2022-03-02T00:00:00+01:00', 'v': 16297.0}]}

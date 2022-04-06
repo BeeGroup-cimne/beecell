@@ -1,11 +1,11 @@
-import dexma
+from dexma import reading
 from unittest import TestCase
 
 
 class ReadingTest(TestCase):
 
     def test_get_readings_by_parameter(self):
-        rea = dexma.Reading()
+        rea = reading.Reading()
         params = {"device_id": 1043036,
                   "parameter_key": 'EACTIVE'}
         response = rea.get_readings_by_parameter_key(params)
@@ -15,7 +15,7 @@ class ReadingTest(TestCase):
 
     # Ver parameter_key con que resoluciones es compatible
     def test_get_readings_by_parameter_key_filter_by_date_err(self):
-        rea = dexma.Reading()
+        rea = reading.Reading()
         params = {"device_id": 1043036,
                   "parameter_key": 'EACTIVE',
                   "resolution": 'M',
@@ -27,7 +27,7 @@ class ReadingTest(TestCase):
                          "Parameter 'EACTIVE' does not accept resolution 'MONTH' with specified operation")
 
     def test_get_readings_by_parameter_key_filter_without_dates(self):
-        rea = dexma.Reading()
+        rea = reading.Reading()
         params = {"device_id": 1043036,
                   "parameter_key": 'CURRENT',
                   "resolution": 'H'}
@@ -37,7 +37,7 @@ class ReadingTest(TestCase):
                          "May not be null")
 
     def test_get_readings_by_parameter_key_filter_by_date(self):
-        rea = dexma.Reading()
+        rea = reading.Reading()
         params = {"device_id": 1043036,
                   "parameter_key": 'CURRENT',
                   "resolution": 'H',
@@ -47,7 +47,7 @@ class ReadingTest(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_get_readings_by_parameter_key_with_operation(self):
-        rea = dexma.Reading()
+        rea = reading.Reading()
         params = {"device_id": 1043036,
                   "parameter_key": 'CURRENT',
                   "resolution": 'H',
@@ -58,7 +58,7 @@ class ReadingTest(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_get_readings_by_parameter_id_voltage(self):
-        rea = dexma.Reading()
+        rea = reading.Reading()
         params = {"device_id": 1043036,
                   "parameter_id": 405,
                   "from": "2020-01-01T00:00:00",
@@ -71,7 +71,7 @@ class ReadingTest(TestCase):
 
     # TO REVIEW - with an interval of two days, returns the same error
     def test_get_readings_by_parameter_id_power(self):
-        rea = dexma.Reading()
+        rea = reading.Reading()
         params = {"device_id": 1043036,
                   "parameter_id": 401,
                   "from": "2020-01-01T00:00:00",
