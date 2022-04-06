@@ -108,15 +108,15 @@ Dexma Parameters doc: https://docs.google.com/spreadsheets/d/1W97Yv9UWR9iwmXzknx
 
   |Resolution type|Description|
   | ------ | ------- |
-  |FM      |<Unknown>|
-  |TM      |<Unknown>|
+  |FM      |Unknown|
+  |TM      |Unknown|
   |QH      |Quarter hourly|
-  |HH      |<Unknown>|
+  |HH      |Unknown|
   |H       |Hourly|
   |D       |Daily|
   |W       |Weekly|
   |M       |Monthly|
-  |B       |<Unknown>|
+  |B       |Unknown|
 
   Filters:  
   - operation = ["AVG", "MAX", "MIN", "DELTA", "RAW"]
