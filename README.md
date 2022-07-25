@@ -170,3 +170,8 @@ Filters:
 ##### get_valid_activities: List all valid Activities for a Location.
   Mandatory parameters:
   * location_id
+
+
+
+# .env
+    API_KEY=<key>
