@@ -1,4 +1,4 @@
-from dexma import parameter
+from src.dexma import parameter
 from unittest import TestCase
 
 

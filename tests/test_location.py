@@ -1,4 +1,4 @@
-from dexma import location
+from src.dexma import location
 from unittest import TestCase
 
 

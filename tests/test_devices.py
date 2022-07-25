@@ -1,7 +1,8 @@
-from dexma import device
 from unittest import TestCase
+
 # import sys
 # sys.path.append('./')
+from src.dexma import device
 
 
 class DevicesTest(TestCase):
