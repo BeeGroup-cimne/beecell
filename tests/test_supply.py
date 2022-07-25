@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from dexma import supply
+from src.dexma import supply
 
 
 # TYPE_ENERGY_SOURCE = ["GAS", "ELECTRICITY",

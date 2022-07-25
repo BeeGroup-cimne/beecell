@@ -1,4 +1,4 @@
-from dexma import device
+from src.dexma import device
 from unittest import TestCase
 
 

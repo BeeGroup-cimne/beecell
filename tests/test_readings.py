@@ -1,4 +1,4 @@
-from dexma import reading
+from src.dexma import reading
 from unittest import TestCase
 
 
