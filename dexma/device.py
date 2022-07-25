@@ -1,7 +1,12 @@
+import os
+
 import requests
+from dotenv import load_dotenv
+
+load_dotenv()
 
 HEADERS = {
-    "x-dexcell-token": "fca21ca1e332e8d13e74",
+    "x-dexcell-token": os.getenv("API_KEY"),
     "Content-Type": "application/json",
 }
 
@@ -33,7 +38,7 @@ class Device(object):
     @classmethod
     def get_datasource(cls, datasource_id):
         response = requests.request(
-              "GET", f"{cls.base_url}/datasources/{datasource_id}",
-              headers=HEADERS
+            "GET", f"{cls.base_url}/datasources/{datasource_id}",
+            headers=HEADERS
         )
         return response

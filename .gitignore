@@ -1,4 +1,4 @@
-vemv/
+venv/
 *.pid
 *.pyc
 .git
@@ -6,3 +6,6 @@ vemv/
 .pytest_cache
 tests/__pycache__
 tests/.pytest_cache
+.env
+config.json
+/.idea
