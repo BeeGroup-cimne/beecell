@@ -2,7 +2,7 @@ from dexma import device
 from dexma import location
 from dexma import parameter
 from dexma import reading
-from dexma import supplie
+from dexma import supply
 
 from datetime import datetime
 
@@ -189,7 +189,7 @@ class Supplie:
                 params["start"] = start
             if limit:
                 params["limit"] = limit
-            sup = supplie.Supplie()
+            sup = supplie.Supply()
             response = sup.get_energy_source_supplies(energy_source, params)
             if response.status_code == 200:
                 print(response.json())
@@ -198,7 +198,7 @@ class Supplie:
 
     def get_supplie_devices(self, supply_id, energy_source):
         if energy_source in TYPE_ENERGY_SOURCE:
-            sup = supplie.Supplie()
+            sup = supplie.Supply()
             response = sup.get_supplie_devices(supply_id, energy_source)
             if response.status_code == 200:
                 print(response.json())
@@ -207,7 +207,7 @@ class Supplie:
 
     def get_supplie(self, supply_id, energy_source):
         if energy_source in TYPE_ENERGY_SOURCE:
-            sup = supplie.Supplie()
+            sup = supplie.Supply()
             response = sup.get_supplie(supply_id, energy_source)
             if response.status_code == 200:
                 print(response.json())

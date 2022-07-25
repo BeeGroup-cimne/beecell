@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 HEADERS = {
-    "x-dexcell-token": os.getenv("API_KEY"),
+    "x-dexcell-token": os.getenv("DEXMA_API_KEY"),
     "Content-Type": "application/json",
 }
 
