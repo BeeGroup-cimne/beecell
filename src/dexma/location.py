@@ -12,7 +12,7 @@ HEADERS = {
 
 
 class Location(object):
-    base_url = "https://api.dexma.com/v3/utility/locations"
+    base_url = "https://api.dexma.com/v3/locations"
 
     @classmethod
     def get_locations(cls, params):
