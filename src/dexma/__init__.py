@@ -1,8 +1,8 @@
-from src.dexma.device import Device
-from src.dexma.location import Locations
-from src.dexma.parameter import Parameters
-from src.dexma.reading import Readings
-from src.dexma.supply import Supplies
+from dexma.device import Device
+from dexma.location import Locations
+from dexma.parameter import Parameters
+from dexma.reading import Readings
+from dexma.supply import Supplies
 
 
 class Dexma(object):

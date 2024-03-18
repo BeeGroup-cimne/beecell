@@ -1,5 +1,5 @@
 import requests
-from src.dexma.decorator import dexma_parser
+from dexma.decorator import dexma_parser
 
 
 class Supplies(object):
