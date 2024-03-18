@@ -1,33 +1,29 @@
-import os
-
 import requests
-from dotenv import load_dotenv
 
-load_dotenv()
-
-HEADERS = {
-    "x-dexcell-token": os.getenv("DEXMA_API_KEY"),
-    "Content-Type": "application/json",
-}
+from src.dexma.decorator import dexma_parser
 
 
-class Reading(object):
-    base_url = "https://api.dexma.com/v3/readings"
+class Readings(object):
+    url_fragment = '/readings'
 
-    @classmethod
-    def get_readings_by_parameter_key(cls, params):
+    def __init__(self, dexma):
+        self.dexma = dexma
+        self.url = self.dexma.base_url + self.url_fragment
+
+    @dexma_parser
+    def get_readings_by_parameter_key(self, params):
         response = requests.request(
             "GET",
-            cls.base_url,
-            headers=HEADERS,
+            self.url,
+            headers=self.dexma.headers,
             params=params)
         return response
 
-    @classmethod
-    def get_readings_by_parameter_id(cls, params):
+    @dexma_parser
+    def get_readings_by_parameter_id(self, params):
         response = requests.request(
             "GET",
-            cls.base_url + "/by-parameter-id",
-            headers=HEADERS,
+            self.url + "/by-parameter-id",
+            headers=self.dexma.headers,
             params=params)
         return response

@@ -1,44 +1,40 @@
-import os
-
 import requests
-from dotenv import load_dotenv
 
-load_dotenv()
-
-HEADERS = {
-    "x-dexcell-token": os.getenv("DEXMA_API_KEY"),
-    "Content-Type": "application/json",
-}
+from src.dexma.decorator import dexma_parser
 
 
 class Device(object):
-    base_url = "https://api.dexma.com/v3/devices"
+    url_fragment = '/devices'
 
-    @classmethod
-    def get_devices(cls, params):
+    def __init__(self, dexma):
+        self.dexma = dexma
+        self.url = self.dexma.base_url + self.url_fragment
+
+    @dexma_parser
+    def get_devices(self, params):
         response = requests.request(
-            "GET", cls.base_url, headers=HEADERS, params=params)
+            "GET", self.url, headers=self.dexma.headers, params=params)
         return response
 
-    @classmethod
-    def get_device(cls, device_id):
+    @dexma_parser
+    def get_device(self, device_id):
         response = requests.request(
-            "GET", f"{cls.base_url}/{device_id}", headers=HEADERS)
+            "GET", f"{self.url}/{device_id}", headers=self.dexma.headers)
         return response
 
-    @classmethod
-    def get_datapoints(cls, device_id, params):
+    @dexma_parser
+    def get_datapoints(self, device_id, params):
         response = requests.request(
-            "GET", f"{cls.base_url}/{device_id}/datapoints",
-            headers=HEADERS,
+            "GET", f"{self.url}/{device_id}/datapoints",
+            headers=self.dexma.headers,
             params=params
         )
         return response
 
-    @classmethod
-    def get_datasource(cls, datasource_id):
+    @dexma_parser
+    def get_datasource(self, datasource_id):
         response = requests.request(
-            "GET", f"{cls.base_url}/datasources/{datasource_id}",
-            headers=HEADERS
+            "GET", f"{self.url}/datasources/{datasource_id}",
+            headers=self.dexma.headers
         )
         return response

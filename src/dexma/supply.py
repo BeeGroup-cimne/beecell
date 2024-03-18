@@ -1,43 +1,38 @@
-import os
-
 import requests
-from dotenv import load_dotenv
-
-load_dotenv()
-
-HEADERS = {
-    "x-dexcell-token": os.getenv("DEXMA_API_KEY"),
-    "Content-Type": "application/json",
-}
+from src.dexma.decorator import dexma_parser
 
 
-class Supply(object):
-    base_url = "https://api.dexma.com/v3/utility/supplies"
+class Supplies(object):
+    url_fragment = '/supplies'
 
-    @classmethod
-    def get_energy_source_supplies(cls, energy_source, params):
-        url = f"{cls.base_url}/{energy_source}"
+    def __init__(self, dexma):
+        self.dexma = dexma
+        self.url = self.dexma.base_url + self.url_fragment
+
+    @dexma_parser
+    def get_energy_source_supplies(self, energy_source, params):
+        url = f"{self.url}/{energy_source}"
         response = requests.request(
             "GET",
             url,
-            headers=HEADERS,
+            headers=self.dexma.headers,
             params=params)
         return response
 
-    @classmethod
-    def get_supply_devices(cls, supplie_id, energy_source):
-        url = f"{cls.base_url}/{energy_source}/{supplie_id}"
+    @dexma_parser
+    def get_supply_devices(self, supply_id, energy_source):
+        url = f"{self.url}/{energy_source}/{supply_id}"
         response = requests.request(
             "GET",
             url,
-            headers=HEADERS)
+            headers=self.dexma.headers)
         return response
 
-    @classmethod
-    def get_supply(cls, supplie_id, energy_source):
-        url = f"{cls.base_url}/{energy_source}/{supplie_id}"
+    @dexma_parser
+    def get_supply(self, supply_id, energy_source):
+        url = f"{self.url}/{energy_source}/{supply_id}"
         response = requests.request(
             "GET",
             url,
-            headers=HEADERS)
+            headers=self.dexma.headers)
         return response

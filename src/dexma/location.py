@@ -1,72 +1,72 @@
-import os
-
 import requests
-from dotenv import load_dotenv
 
-load_dotenv()
-
-HEADERS = {
-    "x-dexcell-token": os.getenv("DEXMA_API_KEY"),
-    "Content-Type": "application/json",
-}
+from src.dexma.decorator import dexma_parser
 
 
-class Location(object):
-    base_url = "https://api.dexma.com/v3/locations"
+class Locations(object):
+    url_fragment = '/locations'
 
-    @classmethod
-    def get_locations(cls, params):
+    def __init__(self, dexma):
+        self.dexma = dexma
+        self.url = self.dexma.base_url + self.url_fragment
+
+    @dexma_parser
+    def get_locations(self, params):
         response = requests.request(
             "GET",
-            cls.base_url,
+            self.url,
             params=params,
-            headers=HEADERS)
+            headers=self.dexma.headers)
         return response
 
-    @classmethod
-    def get_location(cls, location_id):
-        url = f'{cls.base_url}/{location_id}'
+    @dexma_parser
+    def get_location(self, location_id):
+        url = f'{self.url}/{location_id}'
         response = requests.request(
             "GET",
             url,
-            headers=HEADERS)
+            headers=self.dexma.headers)
         return response
 
-    def get_location_devices(cls, location_id):
-        url = f'{cls.base_url}/{location_id}/devices'
+    @dexma_parser
+    def get_location_devices(self, location_id):
+        url = f'{self.url}/{location_id}/devices'
         response = requests.request(
             "GET",
             url,
-            headers=HEADERS)
+            headers=self.dexma.headers)
         return response
 
-    def get_location_referenced_devices(cls, location_id):
-        url = f'{cls.base_url}/{location_id}/reference-devices'
+    @dexma_parser
+    def get_location_referenced_devices(self, location_id):
+        url = f'{self.url}/{location_id}/reference-devices'
         response = requests.request(
             "GET",
             url,
-            headers=HEADERS)
+            headers=self.dexma.headers)
         return response
 
-    def get_location_tags(cls, location_id):
-        url = f'{cls.base_url}/{location_id}/tags'
+    @dexma_parser
+    def get_location_tags(self, location_id):
+        url = f'{self.url}/{location_id}/tags'
         response = requests.request(
             "GET",
             url,
-            headers=HEADERS)
+            headers=self.dexma.headers)
         return response
 
-    def get_location_supplies(cls, location_id):
-        url = f'{cls.base_url}/{location_id}/supplies'
+    @dexma_parser
+    def get_location_supplies(self, location_id):
+        url = f'{self.url}/{location_id}/supplies'
         response = requests.request(
             "GET",
             url,
-            headers=HEADERS)
+            headers=self.dexma.headers)
         return response
 
-    def get_valid_activities(cls):
-        response = requests.request(
-            "GET",
-            "https://api.dexma.com/v3/utility/global/activities",
-            headers=HEADERS)
-        return response
+    # def get_valid_activities(self):
+    #     response = requests.request(
+    #         "GET",
+    #         "https://api.dexma.com/v3/utility/global/activities",
+    #         headers=HEADERS)
+    #     return response
