@@ -17,11 +17,12 @@ class Parameters(object):
             "GET", self.url, headers=self.dexma.headers, params=params)
         return response
 
-    # def get_resolutions(cls, device_id, params):
-    #     params["device_id"] = device_id
-    #     response = requests.request(
-    #         "GET",
-    #         "https://api.dexma.com/v3/parameters/CDD/resolution",
-    #         headers=self.dexma.headers,
-    #         params=params)
-    #     return response
+    @dexma_parser
+    def get_resolutions(self, device_id, p_key, params):
+        params["device_id"] = device_id
+        response = requests.request(
+            "GET",
+            f"https://api.dexma.com/v3/parameters/{p_key}/resolutions",
+            headers=self.dexma.headers,
+            params=params)
+        return response
