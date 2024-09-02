@@ -24,17 +24,16 @@ class Projects(object):
         url = f'{self.url}/{project_id}'
         response = requests.request(
             "GET",
-            self.url,
+            url,
             headers=self.dexma.headers,
             params=params)
         return response
         
     def get_project_readings(self, project_id, params):
-        url = f'{self.url}/{project_id}"/readings"'
-        print(params)
+        url = f'{self.url}/{project_id}/readings'
         response = requests.request(
             "GET",
-            self.url,
+            url,
             headers=self.dexma.headers,
             params=params)
         return response
