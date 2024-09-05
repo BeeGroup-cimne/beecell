@@ -3,6 +3,7 @@ from dexma.location import Locations
 from dexma.parameter import Parameters
 from dexma.reading import Readings
 from dexma.supply import Supplies
+from dexma.project import Projects
 
 
 class Dexma(object):
@@ -27,6 +28,9 @@ class Dexma(object):
 
     def supplies(self):
         return Supplies(self)
+
+    def projects(self):
+        return Projects(self)
 
 
 
