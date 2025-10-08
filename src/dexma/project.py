@@ -28,7 +28,8 @@ class Projects(object):
             headers=self.dexma.headers,
             params=params)
         return response
-        
+
+    @dexma_parser
     def get_project_readings(self, project_id, params):
         url = f'{self.url}/{project_id}/readings'
         response = requests.request(
